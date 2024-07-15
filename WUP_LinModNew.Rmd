@@ -150,7 +150,9 @@ Correlation matrix shows that sims correlates with GRIP AND ARM: And GRIP correl
 cor(SIMS~ARM+GRIP, data=data)
 
 ```
+
 This is the correlation between the sims score and the two variables ARM and GRIP
+
 
 ### Inferential  (Build 2-dimentional model.3)
 
@@ -158,6 +160,7 @@ This is the correlation between the sims score and the two variables ARM and GRI
 model.3 = lm(SIMS ~ ARM + GRIP, data=data) 
 summary.lm(model.3)
 ```
+
 p-value from the F-statistics is 0.0000000000000002, this means the data fits the model.
 Intercept p-value is 0.0000000000000002
 Arm p-value is 0.00000001
@@ -178,6 +181,7 @@ newdata = data.frame(GRIP=94, ARM=88)
 predSIMS = predict(model.3, newdata, interval='pred')
 print(predSIMS)
 ```
+
 The predicted sims score for grip=94, arm88 is 0.150
 the interval prediction are (-2.13, 2.43)
 
@@ -193,6 +197,7 @@ summary.lm(model.1)
 model.1=lm(SIMS~ ARM, data=data)
 
 ```
+
 The nova shows that there is a difference in the models because the p-value is 0.000004
 
 The model 2: SIMS~ARM +GRIP is better than model 1 SIMS~ARM becasue the rss 218 and the rss in model 2is 188
@@ -204,6 +209,7 @@ model.2=lm(SIMS ~ GRIP, data=data)
 anova(model.2, model.3)
 summary.lm(model.1)
 ```
+
 Model SIM~ARM+GRIP is better than the model sims~grip because the rss is lower (188) and the p-value is 0.000000014
 
 
